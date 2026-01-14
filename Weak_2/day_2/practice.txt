@@ -1,0 +1,44 @@
+LC202
+HappyNumber
+
+class Solution {
+    public boolean isHappy(int n) {
+        if(n==1) return true;
+        if(n==4) return false;
+        return isHappy(sum(n));
+    }
+
+    public int sum(int n)
+    {
+        int res=0;
+        while(n>0)
+        {
+            res+=(n%10)*(n%10);
+            n/=10;
+        }
+        return res;
+    }
+}
+
+
+------------------------------------------------------------------------------------------
+
+LC263
+UGLY NUMBER
+class Solution {
+    public boolean isUgly(int n) {
+        if(n<=0)
+        {
+            return false;
+        }
+        int[] arr={2,3,5};
+        for(int i:arr)
+        {
+            while(n%i==0){
+                n/=i;
+            }
+        }
+        return n==1;
+    }
+}
+------------------------------------------------------------------------------------------
